@@ -4,7 +4,7 @@ const {
   getUsers,
   logIn,
   deleteUser,
-  updateEmail,
+  updateBoard,
 } = require("./user.controllers"); //pullin in controller.
 const { hashPassword, comparePasswords, tokenAuth } = require("../middleware");
 const userRouter = Router(); // assign to const to access with dotnotation. Name related to concern. Take note of capital R.
@@ -22,7 +22,7 @@ userRouter.post("/login", comparePasswords, logIn);
 userRouter.get("/token", tokenAuth, logIn);
 
 //UDPATE - PUT
-userRouter.put("/user", updateEmail);
+userRouter.put("/user", updateBoard);
 
 //READ -make get request. see readme.
 userRouter.get("/user", getUsers); //getUser controller for read function
