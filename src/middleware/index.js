@@ -28,7 +28,8 @@ exports.comparePasswords = async (req, res, next) => {
       req.user = user;
       next();
     } else {
-      throw new Error();
+      // throw new Error();
+      res.status(401).send({ message: "incorrect login details" });
     }
   } catch (err) {
     console.log(err);
@@ -56,4 +57,3 @@ exports.tokenAuth = async (req, res, next) => {
     res.status(500).send({ message: "Check server logs" });
   }
 };
-
