@@ -49,13 +49,14 @@ exports.getUsers = async (req, res) => {
 //UPDATE - put accepts .body
 exports.updateBoard = async (req, res) => {
   try {
-    await User.findOneAndUpdate(
+    const updatedUser = await User.findOneAndUpdate(
       { username: req.body.username },
-      { board: req.body.board }
+      { board: req.body.board },
+      { new: true }
     );
-    console.log({ username: req.body.username }, { board: req.body.board });
+    console.log({ username: req.body.username }, { board: updatedUser.board });
     console.log("board updated.");
-    res.status(200).send({ message: "Success", board: req.user.board }); // needed or will tiem out. Got to send it.
+    res.status(200).send({ message: "Success", board: updatedUser.board }); // needed or will tiem out. Got to send it.
   } catch (error) {
     console.log(error);
     res
