@@ -11,9 +11,8 @@ exports.addUser = async (req, res) => {
     //.body above gets rleelavtn info only
     // const newUser = new User()
     await newUser.save();
-    res
-      .status(200)
-      .send({ message: "success", user: newUser.username, token: token }); // needed or will tiem out. Got to send it.
+    res.status(200).send({ message: "success", user: newUser, token: token }); // needed or will tiem out. Got to send it.
+    console.log(newUser);
   } catch (error) {
     console.log(error);
     res
@@ -48,15 +47,16 @@ exports.getUsers = async (req, res) => {
 };
 
 //UPDATE - put accepts .body
-exports.updateEmail = async (req, res) => {
+exports.updateBoard = async (req, res) => {
   try {
-    await User.findOneAndUpdate(
+    const updatedUser = await User.findOneAndUpdate(
       { username: req.body.username },
-      { email: req.body.email }
+      { board: req.body.board },
+      { new: true }
     );
-    console.log({ username: req.body.username }, { email: req.body.email });
-    console.log("email updated.");
-    res.status(200).send({ message: "Success" }); // needed or will tiem out. Got to send it.
+    console.log({ username: req.body.username }, { board: updatedUser.board });
+    console.log("board updated.");
+    res.status(200).send({ message: "Success", board: updatedUser.board }); // needed or will tiem out. Got to send it.
   } catch (error) {
     console.log(error);
     res
