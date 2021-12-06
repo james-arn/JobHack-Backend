@@ -1,5 +1,4 @@
 const User = require("./user.model"); //model specific methods.
-const jobStructure = require("./JobStructure")
 //CREATE - res rewq needed everytime.req everythign sient, res everythign sent back.
 // use in API client POST http://localhost:5000/user and enter JSON data. see readme for more
 exports.addUser = async (req, res) => {
