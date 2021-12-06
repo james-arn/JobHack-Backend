@@ -2,9 +2,8 @@ require("../src/db/connection");
 const express = require("express");
 const cors = require("cors");
 const userRouter = require("./user/user.routes");
-const jobRouter = require("./jobs/jobs.routes");
 const app = express(); // have to assign to const
-const port = process.env.PORT || 5000; //have to assign to port.
+const port = process.env.PORT || 5001; //have to assign to port.
 
 //need 3 things:
 app.use(express.json());
@@ -12,7 +11,6 @@ app.use(express.json());
 //it's a string so super small fiel szie and rapid.
 app.use(cors()); //cross origin resource sharing enables
 app.use(userRouter);
-app.use(jobRouter);
 // below is anoyminous function is a controller. hit health in point. good to check and a test.
 app.get("/health", (req, res) => {
   res.send({ message: "server's up" });
