@@ -18,29 +18,31 @@ const userSchema = new mongoose.Schema({
   },
   board: {
     jobs: {
-      "job-1": {
-        id: {
-          type: String,
-          unique: true,
-          default: "job-1",
-        },
-        company: {
-          type: String,
-          default: "Code Nation",
-        },
-        title: {
-          type: String,
-          default: "Junior Developer",
-        },
-        salary: {
-          type: Number,
-          default: 5,
-        },
-        description: {
-          type: String,
-          default: "Job description.",
-        },
-      },
+      type:Object,
+      unique:true,
+      // "job-1": {
+      //   id: {
+      //     type: String,
+      //     unique: true,
+      //     default: "job-1",
+      //   },
+      //   company: {
+      //     type: String,
+      //     default: "Code Nation",
+      //   },
+      //   title: {
+      //     type: String,
+      //     default: "Junior Developer",
+      //   },
+      //   salary: {
+      //     type: Number,
+      //     default: 5,
+      //   },
+      //   description: {
+      //     type: String,
+      //     default: "Job description.",
+      //   },
+      // },
     },
     columns: {
       "column-1": {
@@ -55,6 +57,7 @@ const userSchema = new mongoose.Schema({
         },
         jobIds: {
           type: Array,
+          default: ["job-1"]
         },
       },
       "column-2": {
