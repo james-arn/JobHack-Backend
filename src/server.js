@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const userRouter = require("./user/user.routes");
 const app = express(); // have to assign to const
-const port = process.env.PORT || 5000; //have to assign to port.
+const port = process.env.PORT || 5001; //have to assign to port.
 
 //need 3 things:
 app.use(express.json());
